@@ -80,6 +80,11 @@ int main(void)
                 printf("You doubled your money!\n");
                 cash = (cash + (real_bet * 2));
             }
+             if (cash == 0) 
+             {
+                printf("Game Over")
+                    return 0;
+             }
 
     } while (yes_no != 0);
     printf("Cashing out. You ended with $%4f.", cash);
