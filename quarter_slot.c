@@ -12,11 +12,13 @@ int main(void)
     int counter, counter2;
 
     // now lets put in that starting miney even though i think be more fun to add in asking for how much you put in might play with
-    int cash = 20;
-    int quarters = (cash * 4);
+    char cash = 20.00;
+    int actual_cash = atoi(cash);
+    int quarters = (actual_cash * 4);
 
     // This is going to be our bet incrament.
-    int bet = .25;
+    char bet = .25;
+    int real_bet = atoi(bet);
 
     // Now for the variables that will be slot reels. be cool to add images like cherrys amd such but dont lnow if thats possible in C
     int num1;
@@ -48,31 +50,36 @@ int main(void)
             // If statment for a jackpot win
             if ((num1 >=95 ))
             {
-                cash -= bet;
-                jack_pot = 3 * bet;
-                cash += jack_pot;
+                actual_cash -= real_bet;
+                jack_pot = 3 * real_bet;
+                actual_cash += jack_pot;
+                cash = actual_cash;
                 printf("Jackpot! You triple your money!\n");
             }
 
             // If statement for being a loser
             if ((num1 < 50))
             {
-                cash -= bet;
+                actual_cash -= real_bet;
                 printf("You lose!\n");
+                cash = actual_cash;
             }
 
             //if statment for if you atleast win something. 
             if (((num1 >= 50) && (num1 <= 75)))
             {
-                cash -= bet;
+                actual_cash -= real_bet;
                 printf("You get your money back!\n");
-                cash += bet;
+                actual_cash += real_bet;
+                cash = actual_cash;
+
             }
             if (((num1 >= 75) && (num1 <= 95)))
             {
-                cash -= bet;
+                actual_cash -= real_bet;
                 printf("You doubled your money!\n");
-                cash = 2 * bet;
+                actual_cash = 2 * real_bet;
+                cash = actual_cash;
             }
        // }
         // end of for loop still think could be own function and intiallize iput amout of money for starting bet see how much someone dould win
