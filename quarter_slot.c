@@ -12,10 +12,11 @@ int main(void)
     int counter, counter2;
 
     // now lets put in that starting miney even though i think be more fun to add in asking for how much you put in might play with
-    int cash = 20, quarters = (cash * 4);
+    double cash = 20;
+    int quarters = (cash * 4);
 
     // This is going to be our bet incrament.
-    int bet = .25;
+    double bet = .25;
 
     // Now for the variables that will be slot reels. be cool to add images like cherrys amd such but dont lnow if thats possible in C
     int num1;
@@ -28,13 +29,13 @@ int main(void)
 
     srand(time(NULL));
     printf("Welcome to the Betting Game!.\n");
-    printf("You have $%4d worth of quarters.\n", cash);
+    printf("You have $%d worth of quarters.\n", cash);
 
-    printf("You have %d quarters ($%4d).\n", quarters,  cash);
-    printf("\n");
+    printf("You have %i quarters ($%4d).\n", quarters,  cash);
+    printf("Enter the number of quarters to bet (or 0 to cash out); \n");
+    scanf("%d  %i", &bet, &yes_no);
     do
     {
-
 
         for (counter2 = 1; counter2 <= 5; counter2++)
         {
@@ -42,7 +43,6 @@ int main(void)
 
             //Let let them know their ballance
             printf("Current Balance=$%4d", cash);
-            printf("	Spin #%2d: ", counter);
             printf("Reel stopped on number:%d ", num1);
 
             // If statment for a jackpot win
@@ -51,7 +51,7 @@ int main(void)
                 cash -= bet;
                 jack_pot = 3 * bet;
                 cash += jack_pot;
-                printf("Jackpot! You triple your money!\n", jack_pot);
+                printf("Jackpot! You triple your money!\n");
             }
 
             // If statement for being a loser
@@ -77,10 +77,8 @@ int main(void)
         }
         // end of for loop still think could be own function and intiallize iput amout of money for starting bet see how much someone dould win
 
-        //find out if they want to make another bet or cash out
-        printf("Would you like to spin again or cashout? (Yes=1, No=0)? ");
-        scanf("%d", &yes_no);
-    } while (toupper(yes_no) == 1);
+        
+    } while (yes_no != 0);
     printf("Cashing out. You ended with $%4d.", cash);
     return 0;
 }
