@@ -12,11 +12,11 @@ int main(void)
     int counter, counter2;
 
     // now lets put in that starting miney even though i think be more fun to add in asking for how much you put in might play with
-    double cash = 20;
+    int cash = 20;
     int quarters = (cash * 4);
 
     // This is going to be our bet incrament.
-    double bet = .25;
+    int bet = .25;
 
     // Now for the variables that will be slot reels. be cool to add images like cherrys amd such but dont lnow if thats possible in C
     int num1;
@@ -33,12 +33,12 @@ int main(void)
 
     printf("You have %i quarters ($%4d).\n", quarters,  cash);
     printf("Enter the number of quarters to bet (or 0 to cash out); \n");
-    scanf("%d  %i", &bet, &yes_no);
+    fgets(bet, sizeof(bet), stdin);
     do
     {
 
-        for (counter2 = 1; counter2 <= 5; counter2++)
-        {
+        //for (counter2 = 1; counter2 <= 5; counter2++)
+        //{
             num1 = (rand()%(100 - 1 + 1));
 
             //Let let them know their ballance
@@ -74,7 +74,7 @@ int main(void)
                 printf("You doubled your money!\n");
                 cash = 2 * bet;
             }
-        }
+       // }
         // end of for loop still think could be own function and intiallize iput amout of money for starting bet see how much someone dould win
 
         
