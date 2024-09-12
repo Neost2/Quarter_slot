@@ -41,9 +41,7 @@ int main(void)
       
             num1 = (rand()%(100 - 1 + 1));
 
-            //Let let them know their ballance
-            printf("Current Balance=$%4f", cash);
-            printf("Reel stopped on number:%i ", num1);
+            
             real_bet = (bet * real_bet1);
 
             if (real_bet > cash)
