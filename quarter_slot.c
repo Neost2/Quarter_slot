@@ -45,14 +45,24 @@ int main(void)
 
             num1 = (rand()%(100 - 1 + 1));
             valid = VALID_INPUT;
-            if (bet1 == 0)
+            if (bet1[0] == 0)
             {
                 printf("Cashing out. You ended with $%.2f.\n", cash);
                 return 0;
             }
-            if (!isdigit(bet1[i]) && bet1[i] != '-') {
-                valid = INVALID_INPUT;
-                break;
+
+            for(int i = 0, bet1[i] != '\0'; i++)
+            {
+                if (bet1[0] == '\n')
+                {
+                    bet1[i] = '\0';
+                    break;
+                }
+                if (!isdigit(bet1[i]) && bet1[i] != '-')
+                {
+                    valid = INVALID_INPUT;
+                    break;
+                }
             }
            if(valid)
            {
