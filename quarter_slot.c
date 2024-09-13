@@ -51,25 +51,22 @@ int main(void)
             }
 
             valid_input = VALID_INPUT;
-            for (int i = 0, input[i] != '\0'; i++){
-                if (input[i] == '\n')
-                {
+            for (int i = 0; input[i] != '\0'; i++) {
+                if (input[i] == '\n') {
                     input[i] = '\0';
                     break;
                 }
-                if (!isdigit(input[0]) && input[0] != '-')
-                {
+                if (!isdigit(input[i]) && input[i] != '-') {
                     valid_input = INVALID_INPUT;
                     break;
                 }
             }
            
 	    
-	    if(valid_input)
+	       if(valid_input)
            {
                sscanf(input,"%d", &bet);
-           }
-           else
+           }else
            {
                printf("Invalid bet. Please enter a valid number of quarters. \n");
            }
@@ -92,7 +89,7 @@ int main(void)
 	        
                 printf("Reel stopped on the number: %i \n", num1);
                 printf("You lose!\n\n");
-		cash = (cash - real_bet);
+		        cash = (cash - real_bet);
 
             }else if ((num1 >= 51) && (num1 <= 74))
             {
@@ -112,6 +109,7 @@ int main(void)
                 cash = (cash + (real_bet * 2));
 		
             }
+
              if (cash == 0) 
              {
                 printf("Game Over\n");
