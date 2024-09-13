@@ -29,17 +29,15 @@ int main(void)
     int yes_no;
 
     //welcome them to game
-    printf("Welcome to the Betting Game!.\n");
-    printf("You have $%.2f worth of quarters.\n", cash);
+    printf("Welcome to the Betting Game!\n");
+   // printf("You have $%.2f worth of quarters.\n", cash);
 
-   // printf("You have %i quarters ($%4f).\n", quarters,  cash);
-   // printf("Enter the number of quarters to bet (or 0 to cash out); \n");
-   // scanf("%d", &bet);
+  
 		bet=1;
     while (bet != 0)
     {
 	quarters = cash * 4;
-	printf("You have %i quarters ($%.2f).\n", quarters,  cash);
+	printf("You have %i quarters ($%.0f).\n", quarters,  cash);
 	printf("Enter the number of quarters to bet (or 0 to cash out); \n");
         scanf("%d", &bet);
 
@@ -56,7 +54,7 @@ int main(void)
             }else if (num1 >=95 )
             {
                 printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on number:%i \n ", num1);
+                printf("Reel stopped on the number:%i \n ", num1);
                 real_bet = (bet * real_bet1);
                 jack_pot = (3 * real_bet);
                 cash += jack_pot;
@@ -66,7 +64,7 @@ int main(void)
             else if (num1 < 50)
             {
                 printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on number:%i \n", num1);
+                printf("Reel stopped on the number:%i \n", num1);
                 printf("You lose!\n");
 		cash = (cash - real_bet);
                
@@ -77,18 +75,18 @@ int main(void)
             }else if ((num1 >= 51) && (num1 <= 74))
             {
                 printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on number:%i \n", num1);
+                printf("Reel stopped on the number:%i \n", num1);
                 cash = (cash - real_bet);
-                printf("You get your money back!\n");
+                printf("You get your money back! \n");
                 cash = (cash + real_bet);
 		
 
             }else if ((num1 >= 75) && (num1 <= 94))
             {
                 printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on number:%i \n", num1);
+                printf("Reel stopped on the number:%i \n", num1);
                 cash = (cash - real_bet);
-                printf("You doubled your money!\n");
+                printf("You doubled your money! \n");
                 cash = (cash + (real_bet * 2));
 		
             }
