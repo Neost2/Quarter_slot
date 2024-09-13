@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <time.h>
 
 #define VALID_INPUT    1
 #define INVALID_INPUT  0
@@ -38,15 +39,17 @@ int main(void)
     while (1)
     {
 	quarters = cash * 4;
-	printf("You have %i quarters ($%.2f).\n", quarters,  cash);
-	printf("Enter the number of quarters to bet (or 0 to cash out): ");
+	printf("You have \\%i quarters ($%.2f)\\.\n", quarters,  cash);
+    printf("\n");
+	printf("Enter the number of quarters to bet \\(or 0 to cash out\\): ");
         fgets(input, sizeof(input), stdin);
-
+            
+            srand(time(NULL));
             num1 = (rand()%(100 - 1 + 1));
 
             if (input[0] == '0')
             {
-                printf("Cashing out. You ended with $%.2f.\n", cash);
+                printf("Cashing out\\. You ended with \\$%.2f\\.\\.\n", cash);
                 return 0;
             }
 
@@ -60,22 +63,31 @@ int main(void)
                     valid_input = INVALID_INPUT;
                     break;
                 }
+                int toohigh = (atoi(input) * real_bet1);
+                if (toohigh > cash)
+                {
+                    valid_input = INVALID_INPUT;
+                    break;
+                }
             }
            
 	    
 	       if(valid_input)
            {
                sscanf(input,"%d", &bet);
+               real_bet = (bet * real_bet1);
            }else
            {
                printf("Invalid bet. Please enter a valid number of quarters. \n");
+               prinf("\n")
            }
             
-            real_bet = (bet * real_bet1);
-            if (real_bet > cash)
-            {
-                printf("Invalid bet. Please enter a valid number of quarters. \n");
-	        }else if (num1 >=95 )
+            
+           // if (real_bet > cash)
+          //  {
+          //      printf("Invalid bet. Please enter a valid number of quarters. \n");
+	      //  }
+            if (num1 >=95 )
             {
 	        
                 printf("Reel stopped on the number: %i \n", num1);
