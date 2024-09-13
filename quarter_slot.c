@@ -32,7 +32,7 @@ int main(void)
 
     //welcome them to game
     printf("Welcome to the Betting Game!\n");
-   printf("You have $%.0f worth of quarters.\n", cash);
+   printf("You have $%.0f worth of quarters.\n\n", cash);
 
   
 
@@ -77,7 +77,7 @@ int main(void)
                real_bet = (bet * real_bet1);
            }else
            {
-               printf("Invalid bet. Please enter a valid number of quarters. \n");
+               printf("Invalid bet. Please enter a valid number of quarters. \n\n");
                continue;
            }
             
