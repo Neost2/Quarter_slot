@@ -22,7 +22,7 @@ int main(void)
     float real_bet1 = .25;
     
     // Now for the variables that will be slot reels. be cool to add images like cherrys amd such but dont lnow if thats possible in C
-    int num1;
+    double num1;
 
     // this is varianle for the jack pot win
     float jack_pot;
@@ -32,16 +32,15 @@ int main(void)
 
     //welcome them to game
     printf("Welcome to the Betting Game!\n");
-   printf("You have $%.0f worth of quarters.\n\n", cash);
+   printf("You have $%.0f worth of quarters.\n", cash);
 
   
 
     while (1)
     {
 	quarters = cash * 4;
-	printf("You have \\%i quarters ($%.2f)\\.\n", quarters,  cash);
-    printf("\n");
-	printf("Enter the number of quarters to bet \\(or 0 to cash out\\): ");
+	printf("You have %i quarters ($%.2f).\n", quarters,  cash);
+	printf("Enter the number of quarters to bet (or 0 to cash out): ");
         fgets(input, sizeof(input), stdin);
             
             srand(time(NULL));
@@ -49,7 +48,7 @@ int main(void)
 
             if (input[0] == '0')
             {
-                printf("Cashing out\\. You ended with \\$%.2f\\.\\.\n", cash);
+                printf("Cashing out. You ended with $%.2f.\n", cash);
                 return 0;
             }
 
@@ -63,7 +62,7 @@ int main(void)
                     valid_input = INVALID_INPUT;
                     break;
                 }
-                int toohigh = (atoi(input) * real_bet1);
+                double toohigh = (atoi(input) * real_bet1);
                 if (toohigh > cash)
                 {
                     valid_input = INVALID_INPUT;
@@ -79,18 +78,13 @@ int main(void)
            }else
            {
                printf("Invalid bet. Please enter a valid number of quarters. \n");
-               prinf("\n")
+               continue;
            }
             
-            
-           // if (real_bet > cash)
-          //  {
-          //      printf("Invalid bet. Please enter a valid number of quarters. \n");
-	      //  }
             if (num1 >=95 )
             {
 	        
-                printf("Reel stopped on the number: %i \n", num1);
+                printf("Reel stopped on the number: %.0lf \n", num1);
                 real_bet = (bet * real_bet1);
                 jack_pot = (3 * real_bet);
                 cash += jack_pot;
@@ -99,14 +93,14 @@ int main(void)
             }else if (num1 < 50)
             {
 	        
-                printf("Reel stopped on the number: %i \n", num1);
+                printf("Reel stopped on the number: %.0lf \n", num1);
                 printf("You lose!\n\n");
 		        cash = (cash - real_bet);
 
             }else if ((num1 >= 51) && (num1 <= 74))
             {
 	        
-                printf("Reel stopped on the number: %i \n", num1);
+                printf("Reel stopped on the number: %.0lf \n", num1);
                 cash = (cash - real_bet);
                 printf("You get your money back! \n\n");
                 cash = (cash + real_bet);
@@ -115,7 +109,7 @@ int main(void)
             }else if ((num1 >= 75) && (num1 <= 94))
             {
 	        
-                printf("Reel stopped on the number: %i \n", num1);
+                printf("Reel stopped on the number: %.0lf \n", num1);
                 cash = (cash - real_bet);
                 printf("You doubled your money! \n\n");
                 cash = (cash + (real_bet * 2));
