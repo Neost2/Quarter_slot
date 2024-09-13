@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <ctype.h>
 
 
 
@@ -30,73 +30,70 @@ int main(void)
 
     //welcome them to game
     printf("Welcome to the Betting Game!\n");
-   // printf("You have $%.2f worth of quarters.\n", cash);
+   printf("You have $%.0f worth of quarters.\n\n", cash);
 
   
 		bet=1;
     while (bet != 0)
     {
 	quarters = cash * 4;
-	printf("You have %i quarters ($%.0f).\n", quarters,  cash);
-	printf("Enter the number of quarters to bet (or 0 to cash out); \n");
+	printf("You have %i quarters ($%.2f).\n", quarters,  cash);
+	printf("Enter the number of quarters to bet (or 0 to cash out): ");
         scanf("%d", &bet);
 
             num1 = (rand()%(100 - 1 + 1));
 
             
             real_bet = (bet * real_bet1);
-
-            if (real_bet > cash)
+            if (bet == 0)
             {
-                printf("You don't have enough for that bet. \n");
-		
-
-            }else if (num1 >=95 )
+                printf("Cashing out. You ended with $%.2f.\n", cash);
+		return 0;
+	    }else if (real_bet > cash)
             {
-                printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on the number:%i \n ", num1);
+                printf("Invalid bet. Please enter a valid number of quarters. \n");
+	    }else if (num1 >=95 )
+            {
+	        //printf("You have %i quarters ($%.2f).\n", quarters,  cash);
+                printf("Reel stopped on the number: %i \n", num1);
                 real_bet = (bet * real_bet1);
                 jack_pot = (3 * real_bet);
                 cash += jack_pot;
-                printf("Jackpot! You triple your money!\n");
+                printf("Jackpot! You triple your money!\n\n");
 		
             }
             else if (num1 < 50)
             {
-                printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on the number:%i \n", num1);
-                printf("You lose!\n");
+	        //printf("You have %i quarters ($%.2f).\n", quarters,  cash);
+                printf("Reel stopped on the number: %i \n", num1);
+                printf("You lose!\n\n");
 		cash = (cash - real_bet);
-               
-		
-		
-		
 
             }else if ((num1 >= 51) && (num1 <= 74))
             {
-                printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on the number:%i \n", num1);
+	        //printf("You have %i quarters ($%.2f).\n", quarters,  cash);
+                printf("Reel stopped on the number: %i \n", num1);
                 cash = (cash - real_bet);
-                printf("You get your money back! \n");
+                printf("You get your money back! \n\n");
                 cash = (cash + real_bet);
 		
 
             }else if ((num1 >= 75) && (num1 <= 94))
             {
-                printf("Current Balance=$%.2f \n", cash);
-                printf("Reel stopped on the number:%i \n", num1);
+	        //printf("You have %i quarters ($%.2f).\n", quarters,  cash);
+                printf("Reel stopped on the number: %i \n", num1);
                 cash = (cash - real_bet);
-                printf("You doubled your money! \n");
+                printf("You doubled your money! \n\n");
                 cash = (cash + (real_bet * 2));
 		
             }
              if (cash == 0) 
              {
-                printf("Game Over")
+                printf("Game Over\n");
                     return 0;
              }
 
     } 
-    printf("Cashing out. You ended with $%.2f. \n", cash);
+//    printf("Cashing out. You ended with $%.2f. \n", cash);
     return 0;
 }
