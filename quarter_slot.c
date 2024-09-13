@@ -1,7 +1,6 @@
 ///Slot Machine Controller* ///
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <ctype.h>
 
 #define VALID_INPUT    1
@@ -17,7 +16,7 @@ int main(void)
 
     // This is going to be our bet incrament.
     int bet;
-    char bet1[100];
+    char input[4];
     float real_bet;
     float real_bet1 = .25;
     
@@ -28,7 +27,7 @@ int main(void)
     float jack_pot;
 
     // this is the variable for keep playing or not
-    int valid;
+    int valid_input;
 
     //welcome them to game
     printf("Welcome to the Betting Game!\n");
@@ -41,32 +40,34 @@ int main(void)
 	quarters = cash * 4;
 	printf("You have %i quarters ($%.2f).\n", quarters,  cash);
 	printf("Enter the number of quarters to bet (or 0 to cash out): ");
-        fgets(bet1, sizeof(bet1), stdin);
+        fgets(input, sizeof(input), stdin);
 
             num1 = (rand()%(100 - 1 + 1));
-            valid = VALID_INPUT;
-            if (bet1[0] == 0)
+
+            if (input[0] == '0')
             {
                 printf("Cashing out. You ended with $%.2f.\n", cash);
                 return 0;
             }
 
-            for(int i = 0, bet1[i] != '\0'; i++)
-            {
-                if (bet1[0] == '\n')
+            valid_input = VALID_INPUT;
+            for (int i = 0, input[i] != '\0'; i++){
+                if (input[i] == '\n')
                 {
-                    bet1[i] = '\0';
+                    input[i] = '\0';
                     break;
                 }
-                if (!isdigit(bet1[i]) && bet1[i] != '-')
+                if (!isdigit(input[0]) && input[0] != '-')
                 {
-                    valid = INVALID_INPUT;
+                    valid_input = INVALID_INPUT;
                     break;
                 }
             }
-           if(valid)
+           
+	    
+	    if(valid_input)
            {
-               sscanf(bet1,"%d", &bet);
+               sscanf(input,"%d", &bet);
            }
            else
            {
