@@ -42,7 +42,7 @@ int main(void)
 	printf("Enter the number of quarters to bet (or 0 to cash out): ");
         fgets(input, sizeof(input), stdin);
 
-            num1 = (rand()%(100 - 1 + 1));
+            num1 = (rand()%(100));
 
             if (input[0] == '0')
             {
@@ -68,7 +68,7 @@ int main(void)
                sscanf(input,"%d", &bet);
            }else
            {
-               printf("Invalid bet. Please enter a valid number of quarters. \n");
+               printf("\nInvalid bet. Please enter a valid number of quarters. \n");
            }
             
             real_bet = (bet * real_bet1);
